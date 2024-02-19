@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multiple Dynamic Inputs and Buttons</title>
+</head>
+<body>
+    <button id="createInputButton">Create Input & Buttons</button>
+
+    <script>
+        document.getElementById('createInputButton').addEventListener('click', function() {
+            // Create a container for each input and its buttons
+            const container = document.createElement('div');
+
+            // Create input field
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.value = 1;
+
+            // Create increment button
+            const incrementButton = document.createElement('button');
+            incrementButton.textContent = 'Increment';
+            incrementButton.onclick = function() {
+                input.value = parseInt(input.value, 10) + 1;
+            };
+
+            // Create decrement button
+            const decrementButton = document.createElement('button');
+            decrementButton.textContent = 'Decrement';
+            decrementButton.onclick = function() {
+                input.value = parseInt(input.value, 10) - 1;
+            };
+
+            // Append input field and buttons to the container
+            container.appendChild(input);
+            container.appendChild(incrementButton);
+            container.appendChild(decrementButton);
+
+            // Append the container to the body
+            document.body.appendChild(container);
+        });
+    </script>
+</body>
+</html>
